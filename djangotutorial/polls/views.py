@@ -49,3 +49,22 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+    
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse("Olá! Esta é a lista.")
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("", views.index, name="index"),
+]
+
+from django.shortcuts import render
+from .models import Artigo
+
+def lista_artigos(request):
+    artigos = Artigo.objects.all()
+    return render(request, "store/lista.html", {"artigos": artigos})

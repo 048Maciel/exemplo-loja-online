@@ -1,0 +1,8 @@
+<h1>{{ vendedor.nome }}</h1>
+<p>{{ vendedor.descricao }}</p>
+
+<ul>
+{% for artigo in artigos %}
+  <li>{{ artigo.nome }}</li>
+</ul>
+{% endfor %}

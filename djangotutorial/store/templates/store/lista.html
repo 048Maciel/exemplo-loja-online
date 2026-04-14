@@ -1,0 +1,11 @@
+<!-- store/templates/store/lista.html -->
+
+<h1>Loja Online</h1>
+
+<ul>
+  {% for artigo in artigos %}
+    <li>{{ artigo.nome }} - €{{ artigo.preco }}</li>
+  {% empty %}
+    <li>Sem artigos</li>
+  {% endfor %}
+</ul>
